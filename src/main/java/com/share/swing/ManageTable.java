@@ -66,6 +66,7 @@ public class ManageTable extends CommonFrame {
 		JTabbedPane jtab = new JTabbedPane(JTabbedPane.TOP);
 		jtab.setFont(new Font("宋体", Font.BOLD, 14));
 		jtab.setBounds(0, 0, width, height);
+		
 		JPanel canaltab = new JPanel();
 		canaltab.setName("canaltab");
 		jtab.addTab(ResourceHolder.getProperty("dstt.service.canal"), canaltab);
@@ -74,18 +75,20 @@ public class ManageTable extends CommonFrame {
 		syntab.setBackground(Color.WHITE);
 		syntab.setName("syntab");
 		syntab.setLayout(jtab.getLayout());
-		jtab.addTab(ResourceHolder.getProperty("dstt.service.datalog"), syntab);
+		jtab.addTab(ResourceHolder.getProperty("dstt.service.datasyn"), syntab);
 		JPanel logtab = new JPanel();
 		logtab.setBackground(Color.WHITE);
 		logtab.setName("logtab");
 		logtab.setLayout(jtab.getLayout());
-		jtab.addTab(ResourceHolder.getProperty("dstt.service.datasyn"), logtab);
+		jtab.addTab(ResourceHolder.getProperty("dstt.service.datalog"), logtab);
+		
 		jtab.setSelectedComponent(syntab);
 		jtab.addChangeListener(new ChangeListener() {
 			@Override
 			public void stateChanged(ChangeEvent e) {
 				JTabbedPane jtab = (JTabbedPane)e.getSource();
 				JPanel panel = (JPanel)jtab.getSelectedComponent();
+				panel.repaint();
 				if("canaltab".equalsIgnoreCase(panel.getName())){
 					
 				}if("logtab".equalsIgnoreCase(panel.getName())){

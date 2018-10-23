@@ -108,7 +108,6 @@ public class JDBCFactory {
 				if(init_pool_size!=null&&init_pool_size>0){
 					dataSource.setInitialSize(init_pool_size);
 				}
-				dataSource.init();
 				connect = dataSource.getConnection();
 			}else{
 				Class.forName(driverName);
