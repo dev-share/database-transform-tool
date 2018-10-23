@@ -88,12 +88,14 @@ public class ManageTable extends CommonFrame {
 			public void stateChanged(ChangeEvent e) {
 				JTabbedPane jtab = (JTabbedPane)e.getSource();
 				JPanel panel = (JPanel)jtab.getSelectedComponent();
+				String name = panel.getName();
 				panel.repaint();
-				if("canaltab".equalsIgnoreCase(panel.getName())){
+				if("canaltab".equalsIgnoreCase(name)){
 					
-				}if("logtab".equalsIgnoreCase(panel.getName())){
+				}else if("logtab".equalsIgnoreCase(name)){
 					
 				}else{
+					System.out.println("----"+name);
 					syn(panel);
 				}
 			}
